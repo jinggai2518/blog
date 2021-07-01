@@ -1,0 +1,14 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "jingggai2518 <357325569@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.20"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
