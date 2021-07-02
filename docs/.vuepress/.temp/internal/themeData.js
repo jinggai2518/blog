@@ -1,5 +1,19 @@
 export const themeData = {
   "logo": "https://vuejs.org/images/logo.png",
+  "nav": [
+    {
+      "text": "vue",
+      "link": "/guide/"
+    },
+    {
+      "text": "js",
+      "link": "/guide/js.html"
+    },
+    {
+      "text": "考试",
+      "link": "/guide/exam.html"
+    }
+  ],
   "locales": {
     "/": {
       "selectLanguageName": "English"

@@ -6,11 +6,11 @@ export const data = {
   "frontmatter": {
     "home": true,
     "title": "Home",
-    "heroImage": "./assets/img/hero.png",
+    "heroImage": "./images/hero.png",
     "actions": [
       {
         "text": "~ >_< ~",
-        "link": "/guide/vue/less1.html",
+        "link": "/guide/",
         "type": "primary"
       }
     ],
@@ -34,12 +34,12 @@ export const data = {
   "headers": [],
   "filePathRelative": "README.md",
   "git": {
-    "updatedTime": 1625133471000,
+    "updatedTime": 1625212007000,
     "contributors": [
       {
         "name": "jingggai2518",
         "email": "357325569@qq.com",
-        "commits": 1
+        "commits": 2
       }
     ]
   }

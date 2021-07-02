@@ -1,13 +1,14 @@
 ---
 home: true
 title: Home
-heroImage: ./assets/img/hero.png
+heroImage: ./images/hero.png
 actions:
   - text: ~ >_< ~ 
-    link: /guide/vue/less1.html
+    link: /guide/
     type: primary
   
 features:
+
   - title: vue学习笔记
     details: 一步跨越到VUE3的学习笔记
     
