@@ -1,18 +1,44 @@
 # vue3
-## How It Works
+## 组件
+### 父子组件之间的通信
 
-A VuePress site is in fact a single-page application (SPA) powered by [Vue](https://v3.vuejs.org/) and [Vue Router](https://next.router.vuejs.org).
+#### $emit方法
+```js
+const test = {
+    props:['count'],
+    methods:{
+           addOne(){
+                this.$emit('addOne',this.count+4);//使用$emit通知父组件
+           } 
 
-Routes are generated according to the relative path of your markdown files. Each Markdown file is compiled into HTML with [markdown-it](https://github.com/markdown-it/markdown-it) and then processed as the template of a Vue component. This allows you to directly use Vue inside your Markdown files and is great when you need to embed dynamic content.
+    },
+        template:`
+               <div @click ='addOne' >{{count}}</div>
+        `
 
-During development, we start a normal dev-server, and serve the VuePress site as a normal SPA. If you’ve used Vue before, you will notice the familiar development experience when you are writing and developing with VuePress.
+ } 
+ const app =  Vue.createApp({
+      data(){
+          return {
+             count:1
+            }
+      },
+      methods:{
+        handAddOne(e){
+            this.count=e;
+        }
 
-During build, we create a server-rendered version of the VuePress site and render the corresponding HTML by virtually visiting each route. This approach is inspired by [Nuxt](https://nuxtjs.org/)'s `nuxt generate` command and other projects like [Gatsby](https://www.gatsbyjs.org/).
-
-## Why Not ...?
-
-### Nuxt
-
+      },
+        template:`
+        <div>
+           <counter :count ='count' @add-one = 'handAddOne'/>   
+        </div>
+        `
+        //使用@add-one监听传递时间，注意此处驼峰要改成-，监听出发handAddOne方法
+    })
+    app.component('counter',test);
+    app.mount('#root')
+```
 Nuxt is an outstanding Vue SSR framework, and it is capable of doing what VuePress does. But Nuxt is designed for building applications, while VuePress is more lightweight and focused on content-centric static sites.
 
 ### VitePress

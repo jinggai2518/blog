@@ -4,7 +4,7 @@ const routeItems = [
   ["v-8daa1a0e","/","Home",["/index.html","/README.md"]],
   ["v-c19856a4","/guide/exam.html","Civil servant",["/guide/exam.md"]],
   ["v-e5218278","/guide/js.html","js",["/guide/js.md"]],
-  ["v-fffb8e28","/guide/","vue3",["/guide/index.html","/guide/README.md"]],
+  ["v-fffb8e28","/guide/","",["/guide/index.html","/guide/README.md"]],
   ["v-7911f002","/guide/vue.html","vue3",["/guide/vue.md"]],
   ["v-3706649a","/404.html","",[]],
 ]
