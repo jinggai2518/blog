@@ -1,17 +1,18 @@
 export const themeData = {
   "logo": "https://vuejs.org/images/logo.png",
-  "nav": [
+  "lastUpdated": true,
+  "navbar": [
     {
       "text": "vue",
-      "link": "/guide/"
+      "link": "/guide/vue.html"
     },
     {
       "text": "js",
-      "link": "/guide/js.html"
+      "link": "/guide/exam.html"
     },
     {
-      "text": "考试",
-      "link": "/guide/exam.html"
+      "text": "exam",
+      "link": "/guide/js.html"
     }
   ],
   "locales": {
@@ -19,7 +20,6 @@ export const themeData = {
       "selectLanguageName": "English"
     }
   },
-  "navbar": [],
   "darkMode": true,
   "repo": null,
   "selectLanguageText": "Languages",
@@ -28,7 +28,6 @@ export const themeData = {
   "sidebarDepth": 2,
   "editLink": true,
   "editLinkText": "Edit this page",
-  "lastUpdated": true,
   "lastUpdatedText": "Last Updated",
   "contributors": true,
   "contributorsText": "Contributors",

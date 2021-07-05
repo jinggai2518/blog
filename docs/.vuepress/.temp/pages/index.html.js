@@ -10,7 +10,7 @@ export const data = {
     "actions": [
       {
         "text": "~ >_< ~",
-        "link": "/guide/",
+        "link": "/guide/vue.html",
         "type": "primary"
       }
     ],
@@ -34,12 +34,12 @@ export const data = {
   "headers": [],
   "filePathRelative": "README.md",
   "git": {
-    "updatedTime": 1625212007000,
+    "updatedTime": 1625220345000,
     "contributors": [
       {
         "name": "jingggai2518",
         "email": "357325569@qq.com",
-        "commits": 2
+        "commits": 3
       }
     ]
   }

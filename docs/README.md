@@ -4,7 +4,7 @@ title: Home
 heroImage: ./images/hero.png
 actions:
   - text: ~ >_< ~ 
-    link: /guide/
+    link: /guide/vue.html
     type: primary
   
 features:
