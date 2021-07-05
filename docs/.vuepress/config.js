@@ -29,12 +29,12 @@ module.exports = {
     },
     {
       text: 'js',
-      link: '/guide/exam.html',
+      link: '/guide/js.html',
      // activeMatch: '/',
     },
     {
       text: 'exam',
-      link: '/guide/js.html',
+      link: '/guide/exam.html',
      // activeMatch: '/',
     },
   ],

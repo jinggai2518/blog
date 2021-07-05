@@ -8,11 +8,11 @@ export const themeData = {
     },
     {
       "text": "js",
-      "link": "/guide/exam.html"
+      "link": "/guide/js.html"
     },
     {
       "text": "exam",
-      "link": "/guide/js.html"
+      "link": "/guide/exam.html"
     }
   ],
   "locales": {
