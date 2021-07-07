@@ -1,4 +1,4 @@
-# vue3
+# vue3基础
 ## 一些tips
 ### v-once
 * 标签使用v-once表示标签只被渲染一次，以后即使数据改变也不重新渲染
@@ -401,5 +401,155 @@ const test = {
     });
     app.component('asyn-common-item',AsynCommonItem)
   
+    app.mount('#root')
+```
+
+## 动画/过渡效果
+
+### 基础过渡动画绑定事件
+
+#### 使用class
+* return animate里面的变量会把css里面声明的赋给div
+```css
+       @keyframes leftToRight {
+            0%{
+                transform: translateX(-100px);
+            }
+            50%{
+                transform: translateX(100px);
+            }
+            100%{
+                transform: translateX(0);
+            }
+        }
+        
+        .animation{
+            animation: leftToRight 3s;
+        }
+        .transition{
+            transition: 3s background-color ease;
+        }
+        .blue{
+            background: blue;
+        }
+        .green{
+            background: green;
+        }
+```
+```js
+//过渡、动画
+    const app = Vue.createApp({
+        data(){
+            return {
+                animate:{
+                    transition:true,
+                    animation: true,
+                    blue:true,
+                    green:false
+                },
+            }
+        },
+        methods:{
+            handleClick(){
+                this.animate.blue = !this.animate.blue; 
+                this.animate.green = !this.animate.green;
+            }
+        },
+        template: `
+            <div>
+              <div :class='animate' >hello world</div>
+              <button @click='handleClick'>切换</button>
+            </div>   
+
+            `
+    })
+   
+    app.mount('#root')
+
+```
+#### 使用style
+
+* 通过 :style 和：class可以将对象animate或者styleObj动态添加到div上
+```js
+  const app = Vue.createApp({
+        data(){
+            return {
+                animate:{
+                    transition:true,
+                    animation: true,
+                    blue:true,
+                    green:false
+                },
+                styleObj:{
+                    background:"blue"
+                }
+            }
+        },
+        methods:{
+            handleClick(){
+                this.styleObj.background = this.styleObj.background=='blue'?"green":"blue"
+            }
+        },
+        template: `
+            <div>
+              <div class='transition' :style='styleObj' >hello world</div>
+              <button @click='handleClick'>切换</button>
+            </div>   
+
+            `
+    })
+
+```
+### 单元素组件的过渡
+* 通过transition标签使得里面的元素在v-if或者v-show的时候添加动画效果
+* 如果transition name='hello'标签使用了name,那么css的v-enter-active需要修改为 hello-enter-active
+```css
+* 也可以在transition上声明 enter-active-class='hello'
+ @keyframes shake{
+            0%{
+                transform: translateX(-100px);
+            }
+            50%{
+                transform: translateX(-50px);
+            }
+            100%{
+                transform: translateX(50px);
+            }
+        }
+        .v-enter-from{}
+        .v-enter-to{}
+        .v-enter-active{
+            animation:shake 3s;
+        }
+        .hello-enter-active{
+            animation:shake 3s;
+        }
+       .v-leave-active{
+        animation:shake 3s;
+       }
+```
+```js
+  //单元素单组件入场和出场动画
+    const app = Vue.createApp({
+        data(){
+            return {
+               show: false
+            }
+        },
+        methods:{
+            handleClick(){
+                this.show = !this.show;
+            }
+        },
+        template: `
+            <div>
+              <transition name='hello'>
+                <div v-if='show'>hello world</div>
+              </transition>
+              <button @click='handleClick'>切换</button>
+            </div>   
+            `
+    })
+   
     app.mount('#root')
 ```
