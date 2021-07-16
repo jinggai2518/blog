@@ -13,6 +13,10 @@ export const themeData = {
     {
       "text": "exam",
       "link": "/guide/exam.html"
+    },
+    {
+      "text": "理财",
+      "link": "/guide/money.html"
     }
   ],
   "locales": {

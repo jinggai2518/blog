@@ -37,6 +37,11 @@ module.exports = {
       link: '/guide/exam.html',
      // activeMatch: '/',
     },
+    {
+      text: '理财',
+      link: '/guide/money.html',
+     // activeMatch: '/',
+    },
   ],
   
   },
