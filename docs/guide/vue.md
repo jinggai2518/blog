@@ -553,3 +553,146 @@ const test = {
    
     app.mount('#root')
 ```
+* 如果动画和过渡时间不一致,在transition标签上加上 type='transition'，会以transition的时间为准，同理如果是animation
+* 使用:duration = "1000"可以同时控制过渡和动画时间为1秒，:duration 可以接收对象{enter:1000,leave:3000}控制入场和出场
+
+### 使用js编写过渡动画
+* 使用vue的钩子实现js的动画效果，性能并不如css
+```js
+ //单元素单组件入场和出场动画
+    const app = Vue.createApp({
+        data(){
+            return {
+               show: false
+            }
+        },
+        methods:{
+            handleClick(){
+                this.show = !this.show;
+            },
+            handleBeforeEnter(el){
+                el.style.color ='red'
+            },
+            handleEnterActive(el,done){
+              const animation = setInterval(()=>{
+                    const color = el.style.color;
+                    if(color ==='red'){
+                        el.style.color ='blue';
+                    }else{
+                        el.style.color ='red'
+                    }
+                },1000)
+                setTimeout(() => {
+                    clearInterval(animation);
+                    done();
+                },5000)
+            },
+            handleEnterEnd(){
+                console.log(123)
+            }
+           
+        },
+        template: `
+            <div>
+              <transition 
+                :css='false'
+                @before-enter='handleBeforeEnter'   el
+                @enter='handleEnterActive'  el done(执行完成的回调)
+                @after-enter ="handleEnterEnd" el
+                @before-leave=
+                @leave=
+                @leave-after=
+              >
+                <div v-show='show'>hello world</div>
+              </transition>
+              <button @click='handleClick'>切换</button>
+            </div>   
+            `
+    })
+   
+    app.mount('#root')
+```
+### 列表动画
+```css
+.list-item{
+           display: inline-block;
+           margin-right: 1em;
+       }
+       .v-enter-from{
+           opacity: 0;
+           transform: translateY(30px);
+       }
+       .v-enter-active{
+           transition: all 1s ease-in;
+       }
+       .v-enter-to{
+           opacity: 1;
+           transform: translateY(0);
+       }
+       .v-move{           //这个属性默认是列表的其他元素的动画效果
+           transition: all 1s ease-in;
+       }
+```
+* 注意：使用transition-group里面的元素必须要写:key="item"否则会报错
+```js
+ //列表动画的实现
+    const app = Vue.createApp({
+        data(){
+            return {
+               list: [1,2,3,4,5,6]
+            }
+        },
+        methods:{
+           handleClick(){
+               this.list.unshift(this.list.length +1)
+           }
+           ,
+        },
+        template: `
+            <div>
+             <transition-group>   
+              <span class='list-item' v-for='item in list' :key="item">{{item}}</span> 
+             </transition-group>
+              <button @click='handleClick'>增加</button>
+            </div>   
+            `
+    })
+   
+```
+### 状态动画
+* 类似于数字滚动的效果
+```js
+  const app = Vue.createApp({
+        data(){
+            return {
+               number:1,
+               animateNumber:1
+            }
+        },
+        methods:{
+           handleClick(){
+               this.number = 10;
+               if(this.animateNumber>=10){
+                   return false;
+               }
+               let currentNumber = this.animateNumber;
+               const animation = setInterval(()=>{
+                   
+                   this.animateNumber +=1;
+                   if(this.animateNumber === this.number){
+                       clearInterval(animation);
+                   }
+               },100)
+           }
+           ,
+        },
+        template: `
+            <div>
+               <span>{{animateNumber}}</span>
+              <button @click='handleClick'>增加</button>
+            </div>   
+            `
+    })
+   
+    app.mount('#root')
+```

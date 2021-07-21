@@ -26,6 +26,10 @@ export const data = {
       {
         "title": "各种考试学习笔记",
         "details": "各类考试的学习笔记"
+      },
+      {
+        "title": "理财知识学习笔记",
+        "details": "基金、股票等证券知识"
       }
     ],
     "footer": "到底啦~~"

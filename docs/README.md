@@ -16,6 +16,8 @@ features:
     details: es5,es6学习笔记
   - title: 各种考试学习笔记
     details: 各类考试的学习笔记
+  - title: 理财知识学习笔记
+    details: 基金、股票等证券知识
   # - title: Themes
   #   details: Providing a default theme out of the box. You can also choose a community theme or create your own one.
   # - title: Plugins
