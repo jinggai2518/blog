@@ -696,3 +696,4 @@ const test = {
    
     app.mount('#root')
 ```
+## vue中的高级语法
