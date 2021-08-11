@@ -54,3 +54,49 @@ console.log(con1 instanceof Person);//false
 2. 无法实现构造函数的复用。（每次用每次都要重新调用）  
 3. 每个新实例都有父类构造函数的副本，臃肿。
 
+## 防抖和节流
+### debounce 防抖函数
+```js
+function debounce(fn, delay = 200) {
+    if (typeof fn !== 'function') { // 参数类型为函数
+        throw new TypeError('fn is not a function');
+    }
+    
+    let lastFn = null; 
+    return function(...args) {
+        if (lastFn) {
+             clearTimeout(lastFn);
+        }
+        let lastFn = setTimeout(() => {
+            lastFn = null;
+            fn.call(this, ...args);
+        }, delay);
+    }
+}
+```
+### throttle 节流函数
+```js
+// fn 是需要执行的函数
+// wait 是时间间隔
+const throttle = (fn, wait = 50) => {
+  // 上一次执行 fn 的时间
+  let previous = 0
+  // 将 throttle 处理结果当作函数返回
+  return function(...args) {
+    // 获取当前时间，转换成时间戳，单位毫秒
+    let now = +new Date()
+    // 将当前时间和上一次执行函数的时间进行对比
+    // 大于等待时间就把 previous 设置为当前时间并执行函数 fn
+    if (now - previous > wait) {
+      previous = now
+      fn.apply(this, args)
+    }
+  }
+}
+
+// DEMO
+// 执行 throttle 函数返回新函数
+const betterFn = throttle(() => console.log('fn 函数执行了'), 1000)
+// 每 10 毫秒执行一次 betterFn 函数，但是只有时间差大于 1000 时才会执行 fn
+setInterval(betterFn, 10)
+```
