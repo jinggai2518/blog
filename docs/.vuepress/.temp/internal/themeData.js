@@ -11,6 +11,10 @@ export const themeData = {
       "link": "/guide/js.html"
     },
     {
+      "text": "微信小程序",
+      "link": "/guide/wx.html"
+    },
+    {
       "text": "exam",
       "link": "/guide/exam.html"
     },

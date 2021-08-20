@@ -33,6 +33,11 @@ module.exports = {
      // activeMatch: '/',
     },
     {
+      text: '微信小程序',
+      link: '/guide/wx.html',
+     // activeMatch: '/',
+    },
+    {
       text: 'exam',
       link: '/guide/exam.html',
      // activeMatch: '/',

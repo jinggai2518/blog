@@ -14,6 +14,8 @@ features:
     
   - title: 原生js学习笔记
     details: es5,es6学习笔记
+  - title: 小程序开发问题记录
+    details: 记录工作中小程序开发遇到的问题
   - title: 各种考试学习笔记
     details: 各类考试的学习笔记
   - title: 理财知识学习笔记

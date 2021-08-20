@@ -9,6 +9,8 @@ export const pagesData = {
   "v-fffb8e28": () => import(/* webpackChunkName: "v-fffb8e28" */"C:/Users/Lenovo/Desktop/blog/docs/.vuepress/.temp/pages/guide/index.html.js").then(({ data }) => data),
   // path: /guide/vue.html
   "v-7911f002": () => import(/* webpackChunkName: "v-7911f002" */"C:/Users/Lenovo/Desktop/blog/docs/.vuepress/.temp/pages/guide/vue.html.js").then(({ data }) => data),
+  // path: /guide/wx.html
+  "v-45a87c2c": () => import(/* webpackChunkName: "v-45a87c2c" */"C:/Users/Lenovo/Desktop/blog/docs/.vuepress/.temp/pages/guide/wx.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"C:/Users/Lenovo/Desktop/blog/docs/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
 }
